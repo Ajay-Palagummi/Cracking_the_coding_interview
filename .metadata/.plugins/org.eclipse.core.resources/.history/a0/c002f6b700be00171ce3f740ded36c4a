@@ -1,0 +1,16 @@
+package URLify;
+
+public class URLify {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+String s = "Mr john smith     .";
+char []a = new char[s.length()];
+a = s.toCharArray();
+for(int i =0;i<s.length();i++){
+	System.out.println(""+a[i]);
+}
+	}
+	
+
+}
