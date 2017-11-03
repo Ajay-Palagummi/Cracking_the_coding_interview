@@ -22,7 +22,7 @@ System.out.println("the string are oneaway");
 else{
 	System.out.println("the string are not oneway");
 }
-scan.close();
+
 	}
 public static boolean oneaway(String a,String b){
 	if (a.length() > b.length()){
