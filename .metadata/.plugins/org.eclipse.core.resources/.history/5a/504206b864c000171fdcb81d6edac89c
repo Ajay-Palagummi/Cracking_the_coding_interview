@@ -1,0 +1,42 @@
+package one_away;
+
+public class One_away {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+public static boolean oneaway(String a,String b){
+	if (a.length() > b.length()){
+		if (a.length()-b.length() > 2){
+			return false;
+		}
+		else{
+			return isoneaway(a,b);
+		}
+	}
+	else if (b.length() > a.length()){
+		if(b.length()-a.length() > 2){
+			return false;
+		}
+		else{
+			return isoneaway(b,a);
+		}
+	}
+	else {
+		return isoneaway(a,b);
+	}
+}
+
+public static boolean isoneaway(String a, String b){
+	char[] char1 = new char [a.length()];
+	char[] char2 = new char [a.length()];
+	
+	
+}
+
+public static ConcurrentHashMap<Character,Interger> insertintomap (String)
+
+
+
+}

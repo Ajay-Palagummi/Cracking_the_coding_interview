@@ -1,0 +1,102 @@
+package one_away;
+
+import java.util.Scanner;
+import java.util.concurrent.ConcurrentHashMap;
+
+public class One_away {
+
+	public static void main(String[] args) {
+
+
+Scanner scan = new Scanner(System.in);	
+System.out.println("enter the first string");
+String s = scan.nextLine();
+System.out.println("enter the second string");
+String s2 = scan.nextLine();
+
+if(oneaway(s,s2)){
+System.out.println("the string are oneaway");
+}
+else{
+	System.out.println("the string are not oneway");
+}
+
+	}
+public static boolean oneaway(String a,String b){
+	if (a.length() > b.length()){
+		if (a.length()-b.length() > 2){
+			return false;
+		}
+		else{
+			return isoneaway(a,b);
+		}
+	}
+	else if (b.length() > a.length()){
+		if(b.length()-a.length() > 2){
+			return false;
+		}
+		else{
+			return isoneaway(b,a);
+		}
+	}
+	else {
+		return isoneaway(a,b);
+	}
+}
+
+public static boolean isoneaway(String a, String b){
+	char[] char1 = new char [a.length()];
+	char[] char2 = new char [a.length()];
+	char1 = a.toCharArray();
+	char2 = b.toCharArray();
+	if(deletefromthemap(insertintomap(char1),char2).size()==0){
+		return true;
+	}
+	else if(getmaxvalue(deletefromthemap(insertintomap(char1),char2)) == 1){
+		return true;
+	}
+	else{
+		return false;
+	}
+	
+}
+//glaring error what if one has more than value 1
+public static ConcurrentHashMap<Character,Integer> insertintomap (char []a){
+ConcurrentHashMap<Character,Integer> map = new ConcurrentHashMap<Character,Integer>();
+for(int i = 0;i< a.length;i++){
+	if (map.containsKey(a[i])){
+	map.put(a[i], (map.get(a[i])+1));
+	}
+	else {
+		map.put(a[i], 1);
+	}
+}
+
+return map;
+}
+
+public static ConcurrentHashMap<Character,Integer> deletefromthemap(ConcurrentHashMap<Character,Integer> a,char []b){
+	for (int i = 0;i< b.length;i++){
+		if(a.containsKey(b[i]) && a.get(b[i])>1){
+			a.put(b[i], (a.get(b[i])-1));
+		}
+		else if(a.containsKey(b[i]) && a.get(b[i])==1){
+			a.remove(b[i]);
+		}
+	}
+	return a;
+}
+
+ public static int getmaxvalue(ConcurrentHashMap<Character,Integer> a){
+	 int i =0;
+	 for(Character key : a.keySet()){
+		 if (a.get(key)>i){
+			 i = a.get(key);
+		 }
+	 }
+	 return i;
+ }
+
+
+
+}

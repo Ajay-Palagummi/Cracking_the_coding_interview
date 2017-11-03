@@ -28,14 +28,14 @@ public static boolean ispalinedrome(String s){
     	insertintomap(a[i],map);
     	}
     }
- //   System.out.println(map.keySet().toString());
- //   System.out.println(map.values().toString());
+    System.out.println(map.keySet().toString());
+    System.out.println(map.values().toString());
     for (Character key : map.keySet()){
     	if(map.get(key)%2 == 0){
     		map.remove(key);   		
     	}
      }
-// System.out.println(map.keySet().toString());
+ System.out.println(map.keySet().toString());
  if(map.size() == 1 && map.containsValue(1)){
 	 return true;
  }
